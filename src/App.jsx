@@ -1,30 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css';
-function App() {
-  const [count, setCount] = useState(0)
-  return (
-    <div><h1>HAPPY SWEETS</h1>
-    <h2>Here are your delicious Desserts and Drinks </h2>
-    <p>Delicious sweets made fresh every day! 🎉</p>
-      <h3>🍪 Sweets Menu  </h3>
-      <h3>Sweets 🍩 🍰</h3>
-      <ul><li>cookies</li>
-        <li>donuts</li>
-        <li>cream cake</li>
-        <li>soft cake</li></ul>
-        <h3> Juices 🍓 🥤</h3>
-        <ul><li>Avocado</li>
-        <li>Mango</li>
-        <li>Pineapple</li>
-        <li>Strawberry</li></ul>
-        <h2>Our Special 😋🍮</h2>
-        <ul>Chocolate Lava</ul>
-        <ul>Caramel Milkshake <h6>with chocolate and vanilla</h6></ul>
-       </div>
-          
+import { useState } from 'react';
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
+//import './App.css';
+function Calculator() {
+const [value, setValue] = useState("");
+const handleClick = (symbol) => {
+    setValue(value + symbol);}
+
+const Calculate = () => {
+    try {
+      setValue(eval(value));
+    } catch {
+      setValue("Error");
+    }
+  };
+
+  const Reset = () => {
+    setValue("");
+  };
+
+
+    
+  return(
+    <div>
+      <h1>Mini Calculator</h1>
+       <h2>{value}</h2>
+
+      <button onClick={() =>Reset("C")}>C</button>
+      <br/>
+      <button onClick={() => handleClick("1")}>1</button>
+      <button onClick={() => handleClick("2")}>2</button>
+      <button onClick={() => handleClick("3")}>3</button>
+      <button onClick={() => handleClick("/")}>/</button>
+      <br/>
+      <button onClick={() => handleClick("4")}>4</button>
+      <button onClick={() => handleClick("5")}>5</button>
+      <button onClick={() => handleClick("6")}>6</button>
+      <button onClick={() => handleClick("*")}>*</button>
+      <br/>
+      <button onClick={() => handleClick("7")}>7</button>
+      <button onClick={() => handleClick("8")}>8</button>
+      <button onClick={() => handleClick("9")}>9</button>
+      <button onClick={() => handleClick("-")}>-</button>
+      <br/>
+      <button onClick={() => handleClick(".")}>.</button>
+      <button onClick={() => handleClick("0")}>0</button>
+      <button onClick={() =>Calculate()}>=</button>
+      <button onClick={() => handleClick("+")}>+</button>
+
+    </div>
   )
- 
+  
+  
 }
-export default App;
+  
+
+export default Calculator;
